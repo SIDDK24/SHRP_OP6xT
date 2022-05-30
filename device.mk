@@ -1,6 +1,9 @@
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
+# Enable updating of APEXes
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+
 LOCAL_PATH := device/oneplus/OP6xT
 
 # define hardware platform
@@ -48,10 +51,6 @@ PRODUCT_PACKAGES_DEBUG += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-
-# Recovery Modules
-PRODUCT_HOST_PACKAGES += \
-    libandroidicu
 
 # Additional binaries & libraries needed for recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
